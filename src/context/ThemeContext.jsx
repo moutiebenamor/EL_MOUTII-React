@@ -4,13 +4,13 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('nexus-theme');
+    const saved = localStorage.getItem('elmoutii-theme') || localStorage.getItem('nexus-theme');
     return saved || 'dark';
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('nexus-theme', theme);
+    localStorage.setItem('elmoutii-theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
